@@ -1,6 +1,12 @@
 package com.example.carlosmendez_finalproject.di
 
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
+import com.example.carlosmendez_finalproject.api.GenshinRepositoryImpl
 import com.example.carlosmendez_finalproject.api.GenshinService
+import com.example.carlosmendez_finalproject.viewmodel.GenshinViewModel
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,5 +31,16 @@ object DI {
             .readTimeout(10, TimeUnit.SECONDS)
             .connectTimeout(10, TimeUnit.SECONDS)
             .build()
+    }
+
+    private fun provideRepository() = GenshinRepositoryImpl(service)
+    private fun provideDispatcher() = Dispatchers.IO
+
+    fun provideViewModel(storeOwner: ViewModelStoreOwner): GenshinViewModel {
+        return ViewModelProvider(storeOwner, object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return GenshinViewModel(provideRepository(), provideDispatcher()) as T
+            }
+        })[GenshinViewModel::class.java]
     }
 }

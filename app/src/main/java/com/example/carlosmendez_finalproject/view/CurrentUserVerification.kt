@@ -6,29 +6,31 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.carlosmendez_finalproject.databinding.LoginFragmentBinding
+import com.example.carlosmendez_finalproject.databinding.CurrentUserVerificationBinding
 
-class LoginFragment: ViewModelFragment() {
-    lateinit var binding: LoginFragmentBinding
-
+class CurrentUserVerification: ViewModelFragment() {
+    lateinit var binding: CurrentUserVerificationBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = LoginFragmentBinding.inflate(layoutInflater)
+        binding = CurrentUserVerificationBinding.inflate(layoutInflater)
 
-        binding.btnRegister.setOnClickListener(){
+        val verified = false
+
+        if (verified){
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+                CurrentUserVerificationDirections.actionCurrentUserVerificationToMenuFragment()
             )
         }
-
-        binding.btnLogin.setOnClickListener() {
+        else
             findNavController().navigate(
-                LoginFragmentDirections.actionLoginFragmentToMenuFragment()
+                CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginFragment()
             )
-        }
+
         return binding.root
     }
+
+
 }

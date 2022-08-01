@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
-
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_current_user_verification">
+    <fragment
+        android:id="@+id/nav_current_user_verification"
+        android:name="com.example.carlosmendez_finalproject.view.CurrentUserVerification"
+        android:label="CurrentUserVerification" >
+        <action
+            android:id="@+id/action_current_user_verification_to_login_fragment"
+            app:destination="@id/nav_login_fragment" />
+        <action
+            android:id="@+id/action_current_user_verification_to_menu_fragment"
+            app:destination="@id/nav_menu_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login_fragment"
+        android:name="com.example.carlosmendez_finalproject.view.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_login_fragment_to_menu_fragment"
+            app:destination="@id/nav_menu_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_register_fragment"
+            app:destination="@id/nav_register_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_menu_fragment"
+        android:name="com.example.carlosmendez_finalproject.view.MenuFragment"
+        android:label="MenuFragment"
+        >
+        <action
+            android:id="@+id/action_menu_fragment_to_character_fragment"
+            app:destination="@id/nav_character_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_character_fragment"
+        android:name="com.example.carlosmendez_finalproject.view.CharacterFragment"
+        android:label="CharacterFragment" />
+    <fragment
+        android:id="@+id/nav_register_fragment"
+        android:name="com.example.carlosmendez_finalproject.view.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>
