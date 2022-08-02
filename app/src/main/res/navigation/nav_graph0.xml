@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph0"
+    app:startDestination="@id/currentUserVerification">
+
+    <fragment
+        android:id="@+id/currentUserVerification"
+        android:name="com.example.carlosmendez_finalproject.view.CurrentUserVerification"
+        android:label="CurrentUserVerification" >
+        <action
+            android:id="@+id/action_current_user_verification_to_login_fragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.carlosmendez_finalproject.view.LoginFragment"
+        android:label="LoginFragment" />
+</navigation>

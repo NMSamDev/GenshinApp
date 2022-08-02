@@ -20,9 +20,7 @@ class CurrentUserVerification: ViewModelFragment() {
         val verified = false
 
         if (verified){
-            findNavController().navigate(
-                CurrentUserVerificationDirections.actionCurrentUserVerificationToMenuFragment()
-            )
+//            findNavController().navigate(CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginFragment())
         }
         else
             findNavController().navigate(

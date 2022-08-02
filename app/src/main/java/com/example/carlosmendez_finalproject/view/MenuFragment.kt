@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.MenuFragmentBinding
 
@@ -19,10 +18,13 @@ class MenuFragment: ViewModelFragment() {
 
 
         binding.btnCharacters.setOnClickListener(){
-            viewModel.setLoading()
-
+//            viewModel.setLoading()
+            findNavController().navigate(
+                MenuFragmentDirections.actionMenuFragmentToCharacterFragment()
+            )
         }
 
         return binding.root
     }
+
 }
