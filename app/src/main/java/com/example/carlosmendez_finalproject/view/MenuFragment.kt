@@ -18,7 +18,7 @@ class MenuFragment: ViewModelFragment() {
 
 
         binding.btnCharacters.setOnClickListener(){
-//            viewModel.setLoading()
+            viewModel.setLoading()
             findNavController().navigate(
                 MenuFragmentDirections.actionMenuFragmentToCharacterFragment()
             )

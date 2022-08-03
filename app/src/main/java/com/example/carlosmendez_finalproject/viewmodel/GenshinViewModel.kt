@@ -18,7 +18,7 @@ class GenshinViewModel(
     private val dispatcher: CoroutineDispatcher
 ): ViewModel() {
     private val _characterData = MutableLiveData<UIState>()
-    private val characterData: LiveData<UIState> get() = _characterData
+    val characterData: LiveData<UIState> get() = _characterData
 
     private val coroutineExceptionHandler by lazy {
         CoroutineExceptionHandler { coroutineContext, throwable ->

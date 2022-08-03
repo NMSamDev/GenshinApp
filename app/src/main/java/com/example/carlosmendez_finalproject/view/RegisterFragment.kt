@@ -8,9 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.carlosmendez_finalproject.databinding.RegisterFragmentBinding
 import com.google.firebase.auth.FirebaseAuth
 
-
-
-
 class RegisterFragment: ViewModelFragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: RegisterFragmentBinding
@@ -22,7 +19,6 @@ class RegisterFragment: ViewModelFragment() {
     ): View? {
         binding = RegisterFragmentBinding.inflate(layoutInflater)
         mAuth = FirebaseAuth.getInstance()
-
 
         return binding.root
     }

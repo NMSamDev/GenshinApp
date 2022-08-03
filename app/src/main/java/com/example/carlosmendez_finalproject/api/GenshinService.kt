@@ -11,7 +11,7 @@ import retrofit2.http.Path
 // Service is for calling an specific path of the base url
 interface GenshinService {
     @GET("characters")
-    suspend fun getCharacters(): Response<String>
+    suspend fun getCharacters(): Response<List<String>>
 
     @GET("characters/{id}")
     suspend fun getCharacterById(
@@ -19,7 +19,7 @@ interface GenshinService {
     ): Response<CharacterResponse>
 
     @GET("weapons")
-    suspend fun getWeapons(): Response<String>
+    suspend fun getWeapons(): Response<List<String>>
 
     @GET("weapons/{id}")
     suspend fun getWeaponById(
@@ -27,7 +27,7 @@ interface GenshinService {
     ): Response<WeaponResponse>
 
     @GET("artifacts")
-    suspend fun getArtifacts(): Response<String>
+    suspend fun getArtifacts(): Response<List<String>>
 
     @GET("artifacts/{id}")
     suspend fun getArtifactById(
@@ -35,7 +35,7 @@ interface GenshinService {
     ): Response<WeaponResponse>
 
     @GET("boss%2Fweekly-boss/")
-    suspend fun getBosses(): Response<String>
+    suspend fun getBosses(): Response<List<String>>
 
     @GET("boss%2Fweekly-boss/")
     suspend fun getBossById(

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.databinding.LoginFragmentBinding
 
 class LoginFragment: ViewModelFragment() {
@@ -17,19 +18,21 @@ class LoginFragment: ViewModelFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = LoginFragmentBinding.inflate(layoutInflater)
 
         binding.btnRegister.setOnClickListener(){
-//            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
-
         binding.btnLogin.setOnClickListener() {
             val intent = Intent(requireActivity(), IndexActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
+            requireActivity().finish()
 
 //            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMenuFragment())
         }
+
+
         return binding.root
     }
 }

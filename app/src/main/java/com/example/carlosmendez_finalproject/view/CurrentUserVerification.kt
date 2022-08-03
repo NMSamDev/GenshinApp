@@ -1,5 +1,6 @@
 package com.example.carlosmendez_finalproject.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,12 +21,16 @@ class CurrentUserVerification: ViewModelFragment() {
         val verified = false
 
         if (verified){
-//            findNavController().navigate(CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginFragment())
+            val intent = Intent(requireActivity(), IndexActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
-        else
+        else{
             findNavController().navigate(
                 CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginFragment()
             )
+        }
+
 
         return binding.root
     }
