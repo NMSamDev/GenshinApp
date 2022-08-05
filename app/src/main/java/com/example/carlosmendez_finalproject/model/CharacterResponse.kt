@@ -6,8 +6,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CharacterResponse(
     val name: String,
+    val title: String,
     val vision: String,
-    val weapon: String,
+    val weapon_type: String,
     val nation: String,
     val affiliation: String,
     val rarity: Int,

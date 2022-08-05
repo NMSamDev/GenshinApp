@@ -11,7 +11,7 @@ import com.example.carlosmendez_finalproject.view.CharacterFragment
 
 class CharacterAdapter(
     private val list: MutableList<String> = mutableListOf(),
-//    private val openDetails: (CharacterResponse) -> Unit
+    private val openDetails: (String) -> Unit
 ): RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>()  {
 
     inner class CharacterViewHolder(private val binding: CharacterItemListBinding): RecyclerView.ViewHolder(binding.root){
@@ -22,10 +22,18 @@ class CharacterAdapter(
                     .load("$baseUrl$item/icon-big")
                     .error("$baseUrl$item/icon")
                     .into(ivCharacterIcon)
-                tvCharacter.text = item
+                tvCharacter.text = item.formatName()
+
+                root.setOnClickListener {
+                    openDetails(item)
+                }
             }
         }
     }
+
+    fun String.formatName(): String  = this.split("-").joinToString(" ") {it ->
+            it.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
+        }
 
     fun setCharacterList(newList: List<String>) {
         list.clear()
@@ -52,3 +60,5 @@ class CharacterAdapter(
     }
 
 }
+
+

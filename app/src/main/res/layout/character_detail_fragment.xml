@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="#615D5D"
+    >
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+    <ImageView
+        android:id="@+id/iv_character_gacha_splash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:backgroundTint="@color/hintColor1"
+        android:backgroundTintMode="multiply"
+        android:elevation="300dp"
+        />
+
+    <RatingBar
+        android:id="@+id/rb_character_rarity"
+        style="@android:style/Widget.Holo.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:isIndicator="true"
+        android:progressTint="#FFEB3B"
+        android:rating="5"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <TextView
+        android:id="@+id/tv_character_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:autoSizeTextType="uniform"
+        android:background="#222121"
+        android:fontFamily="serif"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+
+        tools:text="Amber"/>
+
+    <TextView
+        android:id="@+id/tv_character_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:background="#222121"
+        android:fontFamily="serif"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        tools:text="The gliding champion of Monstant" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BDC6CD"
+        android:layout_gravity="center"
+        android:columnCount="2"
+        android:layout_margin="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_columnWeight="1"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="Element:"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/iv_character_element"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_character_nation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_character_nation"
+            tools:src="@drawable/element_pyro_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_columnWeight="1"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="Weapon:"
+            android:textSize="24sp"/>
+
+        <ImageView
+            android:id="@+id/iv_character_weapon"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            tools:src="@drawable/weapon_icon_bow"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_columnWeight="1"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="Nation:"
+            android:textSize="24sp" />
+
+
+        <ImageView
+            android:id="@+id/iv_character_nation"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            app:layout_constraintEnd_toStartOf="@+id/iv_character_element"
+            app:layout_constraintStart_toEndOf="@+id/iv_character_weapon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/nation_mondstadt" />
+    </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Description"
+        android:textSize="32sp"
+        android:fontFamily="serif"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/tv_character_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="serif"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>
+</ScrollView>

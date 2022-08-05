@@ -15,5 +15,19 @@
     <fragment
         android:id="@+id/nav_character_fragment"
         android:name="com.example.carlosmendez_finalproject.view.CharacterFragment"
-        android:label="CharacterFragment" />
+        android:label="CharacterFragment" >
+        <action
+            android:id="@+id/action_nav_character_fragment_to_characterDetails"
+            app:destination="@id/nav_character_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_character_details"
+        android:name="com.example.carlosmendez_finalproject.view.CharacterDetailsFragment"
+        android:label="CharacterDetails">
+        <argument
+            android:name="character_id"
+            app:argType="string"
+            />
+    </fragment>
+
 </navigation>

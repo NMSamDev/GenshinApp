@@ -20,6 +20,9 @@ class GenshinViewModel(
     private val _characterData = MutableLiveData<UIState>()
     val characterData: LiveData<UIState> get() = _characterData
 
+    private  val _characterDetails = MutableLiveData<UIState>()
+    val characterDetails: LiveData<UIState> get() = _characterDetails
+
     private val coroutineExceptionHandler by lazy {
         CoroutineExceptionHandler { coroutineContext, throwable ->
             Log.e(TAG, "Context: $coroutineContext\nMessage: ${throwable.localizedMessage}",throwable)
@@ -38,7 +41,19 @@ class GenshinViewModel(
             }
         }
     }
+
+    fun getCharacterById(id: String) {
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getCharacterById(id).collect{ state ->
+                _characterDetails.postValue(state)
+            }
+        }
+    }
     fun setLoading() {
         _characterData.value = UIState.Loading
+    }
+
+    fun setLoadingForDetails() {
+        _characterDetails.value = UIState.Loading
     }
 }

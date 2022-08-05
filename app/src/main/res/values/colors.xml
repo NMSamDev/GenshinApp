@@ -8,4 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="hintColor1">#CCCBCB</color>
+    <color name="anemo">#008080</color>
+    <color name="cryo">@android:color/holo_blue_bright</color>
+    <color name="dendro">@android:color/holo_green_dark</color>
+    <color name="electro">#673AB7</color>
+    <color name="geo">#FFC107</color>
+    <color name="hydro">@android:color/holo_blue_dark</color>
+    <color name="pyro">@android:color/holo_red_dark</color>
 </resources>

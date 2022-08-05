@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_index.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2558876811594203" />
+        <entry key="app/src/main/res/layout/character_detail_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/character_fragment.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/character_item_list.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/current_user_verification.xml" value="0.19166666666666668" />
@@ -14,6 +15,7 @@
         <entry key="app/src/main/res/layout/menu_page.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.23253173828124996" />
         <entry key="app/src/main/res/layout/register_page.xml" value="0.2558876811594203" />
+        <entry key="app/src/main/res/layout/weapon_fragment.xml" value="0.190625" />
       </map>
     </option>
   </component>

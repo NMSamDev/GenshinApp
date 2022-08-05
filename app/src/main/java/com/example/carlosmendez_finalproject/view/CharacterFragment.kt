@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.CharacterFragmentBinding
+import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.CharacterAdapter
 
 class CharacterFragment: ViewModelFragment() {
     lateinit var binding: CharacterFragmentBinding
     private val characterAdapter by lazy {
-        CharacterAdapter()
+        CharacterAdapter(openDetails = ::openDetails)
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,5 +45,12 @@ class CharacterFragment: ViewModelFragment() {
                 }
             }
         }
+    }
+
+     fun openDetails(characterItem: String) {
+        viewModel.setLoadingForDetails()
+        findNavController().navigate(
+            CharacterFragmentDirections.actionNavCharacterFragmentToCharacterDetails(characterItem)
+        )
     }
 }
