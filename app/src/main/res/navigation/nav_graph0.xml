@@ -10,7 +10,10 @@
         android:label="CurrentUserVerification" >
         <action
             android:id="@+id/action_current_user_verification_to_login_fragment"
-            app:destination="@id/login_fragment" />
+            app:destination="@id/login_fragment"
+            app:popUpTo="@id/current_user_verification"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/login_fragment"
@@ -23,5 +26,6 @@
     <fragment
         android:id="@+id/register_fragment"
         android:name="com.example.carlosmendez_finalproject.view.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+    </fragment>
 </navigation>

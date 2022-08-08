@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CarlosMendez_FinalProject</string>
+    <string name="element">Element:</string>
+    <string name="weapon">Weapon:</string>
+    <string name="nation">Nation:</string>
+    <string name="description">Description</string>
 </resources>

@@ -8,9 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.CurrentUserVerificationBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class CurrentUserVerification: ViewModelFragment() {
-    lateinit var binding: CurrentUserVerificationBinding
+    private lateinit var binding: CurrentUserVerificationBinding
+    private val mAuth: FirebaseAuth by lazy {
+        FirebaseAuth.getInstance()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -18,10 +22,8 @@ class CurrentUserVerification: ViewModelFragment() {
     ): View? {
         binding = CurrentUserVerificationBinding.inflate(layoutInflater)
 
-        val verified = false
-
-        if (verified){
-            val intent = Intent(requireActivity(), IndexActivity::class.java)
+        if (mAuth.currentUser!=null){
+            val intent = Intent(requireActivity(), IndexActivity()::class.java)
             startActivity(intent)
             requireActivity().finish()
         }
