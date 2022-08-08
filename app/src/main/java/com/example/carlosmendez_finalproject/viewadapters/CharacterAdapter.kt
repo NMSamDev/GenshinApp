@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.carlosmendez_finalproject.databinding.CharacterFragmentBinding
-import com.example.carlosmendez_finalproject.databinding.CharacterItemListBinding
+import com.example.carlosmendez_finalproject.databinding.GeneralListItemBinding
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.view.CharacterFragment
 
@@ -14,15 +14,15 @@ class CharacterAdapter(
     private val openDetails: (String) -> Unit
 ): RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>()  {
 
-    inner class CharacterViewHolder(private val binding: CharacterItemListBinding): RecyclerView.ViewHolder(binding.root){
+    inner class CharacterViewHolder(private val binding: GeneralListItemBinding): RecyclerView.ViewHolder(binding.root){
         fun onBind(item: String) {
             val baseUrl = "https://api.genshin.dev/characters/"
             binding.apply {
-                Glide.with(ivCharacterIcon)
+                Glide.with(ivItemIcon)
                     .load("$baseUrl$item/icon-big")
                     .error("$baseUrl$item/icon")
-                    .into(ivCharacterIcon)
-                tvCharacter.text = item.formatName()
+                    .into(ivItemIcon)
+                tvItemName.text = item.formatName()
 
                 root.setOnClickListener {
                     openDetails(item)
@@ -43,7 +43,7 @@ class CharacterAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterAdapter.CharacterViewHolder {
         return CharacterViewHolder(
-            CharacterItemListBinding.inflate(
+            GeneralListItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

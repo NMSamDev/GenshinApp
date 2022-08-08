@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.api.GenshinRepository
 import com.example.carlosmendez_finalproject.model.UIState
 import kotlinx.coroutines.CoroutineDispatcher
@@ -26,6 +27,22 @@ class GenshinViewModel(
 
     private val _weaponData = MutableLiveData<UIState>()
     val weaponData: LiveData<UIState> get() = _weaponData
+
+    private  val _weaponDetails = MutableLiveData<UIState>()
+    val weaponDetails: LiveData<UIState> get() = _weaponDetails
+
+    private val _artifactData = MutableLiveData<UIState>()
+    val artifactData: LiveData<UIState> get() = _artifactData
+
+    private  val _artifactDetails = MutableLiveData<UIState>()
+    val artifactDetails: LiveData<UIState> get() = _artifactDetails
+
+    private val _weeklyBossData = MutableLiveData<UIState>()
+    val weeklyBossData: LiveData<UIState> get() = _weeklyBossData
+
+    private  val _weeklyBossDetails = MutableLiveData<UIState>()
+    val weeklyBossDetails: LiveData<UIState> get() = _weeklyBossDetails
+
 
     private val coroutineExceptionHandler by lazy {
         CoroutineExceptionHandler { coroutineContext, throwable ->
@@ -62,14 +79,21 @@ class GenshinViewModel(
         }
     }
 
-    fun setLoading(int: Int) {
-        when(int){
-            0 -> _characterData.value = UIState.Loading
-            else -> _weaponData.value = UIState.Loading
+    fun setLoading(select: Int) {
+        when(select){
+            R.id.btn_characters -> _characterData.value = UIState.Loading
+            R.id.btn_weapons -> _weaponData.value = UIState.Loading
+            R.id.btn_artifacts -> _artifactData.value = UIState.Loading
+            R.id.btn_bosses -> _weeklyBossDetails.value = UIState.Loading
         }
     }
 
-    fun setLoadingForDetails() {
-        _characterDetails.value = UIState.Loading
+    fun setLoadingForDetails(select: Int) {
+        when(select){
+            R.id.layout_fragment_character -> _characterDetails.value = UIState.Loading
+            R.id.layout_fragment_weapon -> _weaponDetails.value = UIState.Loading
+            R.id.layout_fragment_artifact -> _artifactDetails.value = UIState.Loading
+            R.id.layout_fragment_weeklyboss -> _weeklyBossDetails.value = UIState.Loading
+        }
     }
 }

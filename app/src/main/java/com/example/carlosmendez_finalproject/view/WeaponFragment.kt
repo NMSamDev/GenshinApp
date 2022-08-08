@@ -31,11 +31,17 @@ class WeaponFragment: ViewModelFragment() {
                     viewModel.getWeapons()
                 }
                 is UIState.Error -> {
-                    binding.pbLoading.visibility = View.VISIBLE
+                    binding.apply {
+                        pbLoading.visibility = View.VISIBLE
+                        tvLoading.visibility = View.VISIBLE
+                        tvLoading.text = uiState.error.message
+                    }
+
                 }
                 is UIState.Success<*> -> {
                     binding.apply {
                         pbLoading.visibility = View.GONE
+                        tvLoading.visibility = View.GONE
                         weaponAdapter.setNewList(uiState.response as List<String>)
                         rvWeaponList.adapter = weaponAdapter
                     }

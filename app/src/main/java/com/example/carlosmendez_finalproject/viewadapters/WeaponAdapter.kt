@@ -5,22 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.carlosmendez_finalproject.R
-import com.example.carlosmendez_finalproject.databinding.CharacterItemListBinding
+import com.example.carlosmendez_finalproject.databinding.GeneralListItemBinding
 import com.example.carlosmendez_finalproject.model.WeaponResponse
 
 class WeaponAdapter(
     private val list: MutableList<String> = mutableListOf()
 ): RecyclerView.Adapter<WeaponAdapter.WeaponViewHolder>() {
-    inner class WeaponViewHolder(private val binding: CharacterItemListBinding): RecyclerView.ViewHolder(binding.root){
+    inner class WeaponViewHolder(private val binding: GeneralListItemBinding): RecyclerView.ViewHolder(binding.root){
         fun onBind(item: String){
             val baseUrl = "https://api.genshin.dev/weapons/"
             binding.apply {
-                Glide.with(ivCharacterIcon)
+                Glide.with(ivItemIcon)
                     .load("$baseUrl$item/icon")
                     .error(R.drawable.paimon_icon_0)
-                    .into(ivCharacterIcon)
+                    .into(ivItemIcon)
 
-                tvCharacter.text = item.formatName()
+                tvItemName.text = item.formatName()
             }
         }
     }
@@ -37,7 +37,7 @@ class WeaponAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeaponViewHolder {
         return WeaponViewHolder(
-            CharacterItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            GeneralListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 

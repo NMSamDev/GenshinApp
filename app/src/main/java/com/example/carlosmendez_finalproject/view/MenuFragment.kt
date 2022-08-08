@@ -19,7 +19,7 @@ class MenuFragment: ViewModelFragment() {
     private val mAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
-    @SuppressLint("ClickableViewAccessibility")
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,47 +28,42 @@ class MenuFragment: ViewModelFragment() {
         binding = MenuFragmentBinding.inflate(layoutInflater)
         verifyCurrentUser()
 
-        val context = this.context
         binding.apply {
-
-            tvUser.text = mAuth.currentUser!!.email
-//            btnCharacters.layoutParams.width = dpToPx(250f, this@MenuFragment.context!!)
-//
-//            btnCharacters
-//                .setOnTouchListener { view, motionEvent ->
-//                    if(motionEvent.action == MotionEvent.ACTION_DOWN) {
-//                        view.layoutParams.width = view.layoutParams.width*2
-//                        Toast.makeText(context, "Pressed", Toast.LENGTH_SHORT).show()
-//                    }
-//
-//                        return@setOnTouchListener true
-//                }
-
-
+            tvUser.text = mAuth.currentUser?.email
 
             btnLogout.setOnClickListener(){
                 signOut()
             }
             btnCharacters.setOnClickListener(){
-                viewModel.setLoading(0)
+                viewModel.setLoading(btnCharacters.id)
                 findNavController().navigate(
-                    MenuFragmentDirections.actionMenuFragmentToCharacterFragment()
+                    MenuFragmentDirections.actionNavMenuFragmentToCharacterFragment()
                 )
             }
 
             btnWeapons.setOnClickListener {
-                viewModel.setLoading(1)
+                viewModel.setLoading(btnWeapons.id)
                 findNavController().navigate(
                     MenuFragmentDirections.actionNavMenuFragmentToWeaponFragment()
+                )
+            }
+
+            btnArtifacts.setOnClickListener {
+                viewModel.setLoading(btnArtifacts.id)
+                findNavController().navigate(
+                    MenuFragmentDirections.actionNavMenuFragmentToArtifactFragment()
+                )
+            }
+
+            btnBosses.setOnClickListener {
+                viewModel.setLoading(btnBosses.id)
+                findNavController().navigate(
+                    MenuFragmentDirections.actionNavMenuFragmentToWeeklyBossFragment()
                 )
             }
         }
 
         return binding.root
-    }
-
-    private fun dpToPx(dp: Float, context: Context): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics).toInt()
     }
 
     private fun verifyCurrentUser() {

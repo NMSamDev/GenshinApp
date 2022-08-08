@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_index.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2558876811594203" />
+        <entry key="app/src/main/res/layout/artifact_detail.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/artifact_fragment.xml" value="0.11322463768115942" />
+        <entry key="app/src/main/res/layout/artifacts_fragment.xml" value="0.11322463768115942" />
         <entry key="app/src/main/res/layout/character_detail_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/character_fragment.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/character_item_list.xml" value="0.2078125" />
@@ -15,7 +18,10 @@
         <entry key="app/src/main/res/layout/menu_page.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/register_fragment.xml" value="0.23253173828124996" />
         <entry key="app/src/main/res/layout/register_page.xml" value="0.2558876811594203" />
+        <entry key="app/src/main/res/layout/weapon_detail.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/weapon_fragment.xml" value="0.190625" />
+        <entry key="app/src/main/res/layout/weekly_boss_detail.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/weekly_boss_fragment.xml" value="0.31672195213428445" />
       </map>
     </option>
   </component>

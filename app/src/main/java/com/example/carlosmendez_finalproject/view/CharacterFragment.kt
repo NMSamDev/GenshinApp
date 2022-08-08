@@ -34,11 +34,16 @@ class CharacterFragment: ViewModelFragment() {
                     viewModel.getCharacters()
                 }
                 is UIState.Error -> {
-                    binding.pbLoading.visibility = View.VISIBLE
+                    binding.apply {
+                        pbLoading.visibility = View.VISIBLE
+                        tvLoading.visibility = View.VISIBLE
+                        tvLoading.text = uiState.error.message
+                    }
                 }
                 is UIState.Success<*> -> {
                     binding.apply {
                         pbLoading.visibility = View.GONE
+                        tvLoading.visibility = View.GONE
                         characterAdapter.setCharacterList(uiState.response as List<String>)
                         rvCharacterList.adapter = characterAdapter
                     }
@@ -48,7 +53,7 @@ class CharacterFragment: ViewModelFragment() {
     }
 
      private fun openDetails(characterItem: String) {
-        viewModel.setLoadingForDetails()
+        viewModel.setLoadingForDetails(binding.root.id)
         findNavController().navigate(
             CharacterFragmentDirections.actionNavCharacterFragmentToCharacterDetails(characterItem)
         )
