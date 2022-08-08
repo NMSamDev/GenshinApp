@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:text="Welcome Back Traveler!"
+        android:text="@string/welcome_back_traveler"
         android:textColor="@color/white"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -48,17 +48,54 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="8dp"
         />
-
-    <Button
-        android:id="@+id/btn_characters"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/tv_user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Characters ->"
-        />
+        >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="16dp"
+        >
+        <ImageButton
+            android:id="@+id/btn_characters"
+            android:layout_width="200dp"
+            android:layout_height="400dp"
+            android:layout_marginHorizontal="4dp"
+            android:src="@drawable/genshin_characters"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_weapons"
+            android:layout_width="200dp"
+            android:layout_height="400dp"
+            android:layout_marginHorizontal="4dp"
+            android:src="@drawable/genshin_weapons"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_artifacts"
+            android:layout_width="200dp"
+            android:layout_height="400dp"
+            android:layout_marginHorizontal="4dp"
+            android:src="@drawable/genshin_artifacts"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_bosses"
+            android:layout_width="200dp"
+            android:layout_height="400dp"
+            android:layout_marginHorizontal="4dp"
+            android:src="@drawable/genshin_bosses"
+            />
+    </LinearLayout>
+    </HorizontalScrollView>
 <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/rv_menu_list"-->
 <!--        android:layout_width="match_parent"-->
