@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_menu_fragment_to_character_fragment"
             app:destination="@id/nav_character_fragment" />
+        <action
+            android:id="@+id/action_nav_menu_fragment_to_weaponFragment"
+            app:destination="@id/nav_weapon_fragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_character_fragment"
@@ -29,5 +32,9 @@
             app:argType="string"
             />
     </fragment>
+    <fragment
+        android:id="@+id/nav_weapon_fragment"
+        android:name="com.example.carlosmendez_finalproject.view.WeaponFragment"
+        android:label="WeaponFragment" />
 
 </navigation>

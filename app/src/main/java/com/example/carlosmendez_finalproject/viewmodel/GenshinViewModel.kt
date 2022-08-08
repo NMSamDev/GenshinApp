@@ -9,6 +9,7 @@ import com.example.carlosmendez_finalproject.api.GenshinRepository
 import com.example.carlosmendez_finalproject.model.UIState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 
@@ -22,6 +23,9 @@ class GenshinViewModel(
 
     private  val _characterDetails = MutableLiveData<UIState>()
     val characterDetails: LiveData<UIState> get() = _characterDetails
+
+    private val _weaponData = MutableLiveData<UIState>()
+    val weaponData: LiveData<UIState> get() = _weaponData
 
     private val coroutineExceptionHandler by lazy {
         CoroutineExceptionHandler { coroutineContext, throwable ->
@@ -49,8 +53,20 @@ class GenshinViewModel(
             }
         }
     }
-    fun setLoading() {
-        _characterData.value = UIState.Loading
+
+    fun getWeapons() {
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getWeapons().collect() { state ->
+                _weaponData.postValue(state)
+            }
+        }
+    }
+
+    fun setLoading(int: Int) {
+        when(int){
+            0 -> _characterData.value = UIState.Loading
+            else -> _weaponData.value = UIState.Loading
+        }
     }
 
     fun setLoadingForDetails() {

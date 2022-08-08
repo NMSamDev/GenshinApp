@@ -47,7 +47,7 @@ class CharacterFragment: ViewModelFragment() {
         }
     }
 
-     fun openDetails(characterItem: String) {
+     private fun openDetails(characterItem: String) {
         viewModel.setLoadingForDetails()
         findNavController().navigate(
             CharacterFragmentDirections.actionNavCharacterFragmentToCharacterDetails(characterItem)

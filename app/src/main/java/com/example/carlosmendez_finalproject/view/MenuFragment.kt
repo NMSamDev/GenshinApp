@@ -50,9 +50,16 @@ class MenuFragment: ViewModelFragment() {
                 signOut()
             }
             btnCharacters.setOnClickListener(){
-                viewModel.setLoading()
+                viewModel.setLoading(0)
                 findNavController().navigate(
                     MenuFragmentDirections.actionMenuFragmentToCharacterFragment()
+                )
+            }
+
+            btnWeapons.setOnClickListener {
+                viewModel.setLoading(1)
+                findNavController().navigate(
+                    MenuFragmentDirections.actionNavMenuFragmentToWeaponFragment()
                 )
             }
         }
