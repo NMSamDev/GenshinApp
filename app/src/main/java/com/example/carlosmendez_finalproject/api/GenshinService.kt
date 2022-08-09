@@ -38,7 +38,7 @@ interface GenshinService {
     @GET("boss%2Fweekly-boss")
     suspend fun getWeeklyBosses(): Response<List<String>>
 
-    @GET("boss%2Fweekly-boss/")
+    @GET("boss%2Fweekly-boss/{id}")
     suspend fun getWeeklyBossById(
         @Path("id") id: String
     ): Response<BossResponse>

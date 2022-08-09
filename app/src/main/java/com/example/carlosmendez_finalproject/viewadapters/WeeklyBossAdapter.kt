@@ -8,9 +8,11 @@ import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.databinding.GeneralListItemBinding
 
 class WeeklyBossAdapter(
-    private val list: MutableList<String> = mutableListOf()
+    private val list: MutableList<String> = mutableListOf(),
+    private val openDetails: (String) -> Unit
 ): RecyclerView.Adapter<WeeklyBossAdapter.WeeklyBossViewHolder>() {
-    inner class WeeklyBossViewHolder(private val binding: GeneralListItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class WeeklyBossViewHolder(private val binding: GeneralListItemBinding):
+        RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: String) {
             val baseUrl = "https://api.genshin.dev/boss%2Fweekly-boss/"
             binding.apply {
@@ -20,6 +22,10 @@ class WeeklyBossAdapter(
                     .into(ivItemIcon)
 
                 tvItemName.text = item.formatName()
+
+                root.setOnClickListener {
+                    openDetails(item)
+                }
             }
         }
     }

@@ -1,5 +1,8 @@
 package com.example.carlosmendez_finalproject.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 // boss%2Fweekly-boss
 data class BossResponse(
     val name: String,
@@ -8,16 +11,18 @@ data class BossResponse(
     val artifacts: List<Artifact>
 )
 
+@Parcelize
 data class Drop(
     val name: String,
     val rarity: Int,
     val source: String
-)
+): Parcelable
 
+@Parcelize
 data class Artifact(
     val name: String,
     val max_rarity: Int
-)
+): Parcelable
 
 //"bloodjade-branch",
 //"dragon-lord-s-crown",

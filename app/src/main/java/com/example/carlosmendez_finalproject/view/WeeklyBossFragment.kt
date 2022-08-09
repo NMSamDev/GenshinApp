@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.WeeklyBossFragmentBinding
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.WeeklyBossAdapter
@@ -11,7 +12,7 @@ import com.example.carlosmendez_finalproject.viewadapters.WeeklyBossAdapter
 class WeeklyBossFragment: ViewModelFragment() {
     lateinit var binding: WeeklyBossFragmentBinding
     private val wBossAdapter by lazy {
-        WeeklyBossAdapter()
+        WeeklyBossAdapter(openDetails = ::openDetails)
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,5 +49,11 @@ class WeeklyBossFragment: ViewModelFragment() {
                 }
             }
         }
+    }
+    private fun openDetails(boosItem: String){
+        viewModel.setLoadingForDetails(binding.root.id)
+        findNavController().navigate(
+            WeeklyBossFragmentDirections.actionNavWeeklyBossFragmentToNavWeeklyBossDetails(boosItem)
+        )
     }
 }
