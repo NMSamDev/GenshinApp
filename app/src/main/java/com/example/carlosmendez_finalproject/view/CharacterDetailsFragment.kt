@@ -52,6 +52,7 @@ class CharacterDetailsFragment: ViewModelFragment() {
                         Glide.with(ivCharacterGachaSplash)
                             .load("$baseUrl/characters/${args.characterId}/gacha-splash")
                             .into(ivCharacterGachaSplash)
+
                         Glide.with(ivCharacterElement)
                             .load("$baseUrl/elements/${characterItem.vision.lowercase()}/icon")
                             .into(ivCharacterElement)

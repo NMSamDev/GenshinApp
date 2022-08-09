@@ -63,6 +63,30 @@ class GenshinViewModel(
         }
     }
 
+    fun getWeapons() {
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getWeapons().collect() { state ->
+                _weaponData.postValue(state)
+            }
+        }
+    }
+
+    fun getArtifacts() {
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getArtifacts().collect() { state ->
+                _artifactData.postValue(state)
+            }
+        }
+    }
+
+    fun getWeeklyBosses() {
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getWeeklyBosses().collect() { state ->
+                _weeklyBossData.postValue(state)
+            }
+        }
+    }
+
     fun getCharacterById(id: String) {
         viewModelSafeScope.launch(dispatcher) {
             repository.getCharacterById(id).collect{ state ->
@@ -71,10 +95,26 @@ class GenshinViewModel(
         }
     }
 
-    fun getWeapons() {
+    fun getWeaponById(id: String) {
         viewModelSafeScope.launch(dispatcher) {
-            repository.getWeapons().collect() { state ->
-                _weaponData.postValue(state)
+            repository.getWeaponsById(id).collect{ state ->
+                _weaponDetails.postValue(state)
+            }
+        }
+    }
+
+    fun getArtifactById(id: String){
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getArtifactsById(id).collect{ state ->
+                _artifactDetails.postValue(state)
+            }
+        }
+    }
+
+    fun getWeeklyBossById(id: String) {
+        viewModelSafeScope.launch(dispatcher) {
+            repository.getWeeklyBossesById(id).collect{ state ->
+                _weeklyBossDetails.postValue(state)
             }
         }
     }
