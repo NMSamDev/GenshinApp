@@ -35,7 +35,7 @@ class CharacterDetailsFragment: ViewModelFragment() {
                 }
                 is UIState.Error -> {
                     binding.apply {
-
+                        pbLoading.visibility = View.GONE
                     }
                 }
                 is UIState.Success<*> -> {

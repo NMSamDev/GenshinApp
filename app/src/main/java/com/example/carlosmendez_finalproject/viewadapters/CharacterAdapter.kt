@@ -4,10 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.carlosmendez_finalproject.databinding.CharacterFragmentBinding
 import com.example.carlosmendez_finalproject.databinding.GeneralListItemBinding
-import com.example.carlosmendez_finalproject.model.CharacterResponse
-import com.example.carlosmendez_finalproject.view.CharacterFragment
 
 class CharacterAdapter(
     private val list: MutableList<String> = mutableListOf(),

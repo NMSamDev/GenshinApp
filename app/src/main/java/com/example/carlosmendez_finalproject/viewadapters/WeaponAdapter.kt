@@ -9,7 +9,8 @@ import com.example.carlosmendez_finalproject.databinding.GeneralListItemBinding
 import com.example.carlosmendez_finalproject.model.WeaponResponse
 
 class WeaponAdapter(
-    private val list: MutableList<String> = mutableListOf()
+    private val list: MutableList<String> = mutableListOf(),
+    private val openDetails: (String) -> Unit
 ): RecyclerView.Adapter<WeaponAdapter.WeaponViewHolder>() {
     inner class WeaponViewHolder(private val binding: GeneralListItemBinding): RecyclerView.ViewHolder(binding.root){
         fun onBind(item: String){
@@ -21,6 +22,10 @@ class WeaponAdapter(
                     .into(ivItemIcon)
 
                 tvItemName.text = item.formatName()
+
+                root.setOnClickListener {
+                    openDetails(item)
+                }
             }
         }
     }

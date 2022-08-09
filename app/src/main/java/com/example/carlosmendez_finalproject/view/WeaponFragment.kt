@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.WeaponFragmentBinding
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.WeaponAdapter
@@ -11,7 +12,7 @@ import com.example.carlosmendez_finalproject.viewadapters.WeaponAdapter
 class WeaponFragment: ViewModelFragment() {
     lateinit var binding: WeaponFragmentBinding
     private val weaponAdapter by lazy {
-        WeaponAdapter()
+        WeaponAdapter(openDetails = ::openDetails)
     }
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,4 +50,12 @@ class WeaponFragment: ViewModelFragment() {
             }
         }
     }
+
+    private fun openDetails(weaponItem: String) {
+        viewModel.setLoadingForDetails(binding.root.id)
+        findNavController().navigate(
+            WeaponFragmentDirections.actionNavWeaponFragmentToWeaponDetailFragment(weaponItem)
+        )
+    }
+
 }

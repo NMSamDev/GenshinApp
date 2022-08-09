@@ -141,6 +141,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/description"
         android:textSize="32sp"
         android:fontFamily="serif"
@@ -151,11 +153,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="serif"
         android:textColor="@color/white"
+        android:text="This character doesn't have a description yet. Stay tuned for new updates"
         />
 
 </LinearLayout>
