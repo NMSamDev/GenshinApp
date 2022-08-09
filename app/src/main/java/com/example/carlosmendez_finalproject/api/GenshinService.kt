@@ -34,7 +34,7 @@ interface GenshinService {
         @Path("id") id: String
     ): Response<WeaponResponse>
 
-    @GET("boss%2Fweekly-boss/")
+    @GET("boss%2Fweekly-boss")
     suspend fun getWeeklyBosses(): Response<List<String>>
 
     @GET("boss%2Fweekly-boss/")

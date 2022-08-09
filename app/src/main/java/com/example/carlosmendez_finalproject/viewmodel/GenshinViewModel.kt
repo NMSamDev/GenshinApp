@@ -124,7 +124,7 @@ class GenshinViewModel(
             R.id.btn_characters -> _characterData.value = UIState.Loading
             R.id.btn_weapons -> _weaponData.value = UIState.Loading
             R.id.btn_artifacts -> _artifactData.value = UIState.Loading
-            R.id.btn_bosses -> _weeklyBossDetails.value = UIState.Loading
+            R.id.btn_bosses -> _weeklyBossData.value = UIState.Loading
         }
     }
 

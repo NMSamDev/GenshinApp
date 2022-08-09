@@ -80,8 +80,8 @@ class GenshinRepositoryImpl(private val service: GenshinService): GenshinReposit
             try {
                 val response = service.getArtifacts()
                 if (response.isSuccessful) {
-                    emit(response.body()?.let { weaponResponse ->
-                        UIState.Success(weaponResponse)
+                    emit(response.body()?.let { artifactResponse ->
+                        UIState.Success(artifactResponse)
                     } ?: throw Exception("Empty response"))
                 }
                 else throw Exception("Failed network call")
@@ -110,8 +110,8 @@ class GenshinRepositoryImpl(private val service: GenshinService): GenshinReposit
             try {
                 val response = service.getWeeklyBosses()
                 if (response.isSuccessful) {
-                    emit(response.body()?.let { weaponResponse ->
-                        UIState.Success(weaponResponse)
+                    emit(response.body()?.let { wBossResponse ->
+                        UIState.Success(wBossResponse)
                     } ?: throw Exception("Empty response"))
                 }
                 else throw Exception("Failed network call")
