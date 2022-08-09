@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.ArtifactFragmentBinding
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.ArtifactAdapter
@@ -11,7 +12,7 @@ import com.example.carlosmendez_finalproject.viewadapters.ArtifactAdapter
 class ArtifactFragment: ViewModelFragment() {
     lateinit var binding: ArtifactFragmentBinding
     private val artifactAdapter by lazy {
-        ArtifactAdapter()
+        ArtifactAdapter(openDetails = :: openDetails)
     }
 
     override fun onCreateView(
@@ -49,5 +50,12 @@ class ArtifactFragment: ViewModelFragment() {
                 }
             }
         }
+    }
+
+    private fun openDetails(artifactItem: String) {
+        viewModel.setLoadingForDetails(binding.root.id)
+        findNavController().navigate(
+            ArtifactFragmentDirections.actionNavArtifactFragmentToNavArtifactDetails(artifactItem)
+        )
     }
 }

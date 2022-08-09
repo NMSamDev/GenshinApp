@@ -51,6 +51,7 @@ class CharacterDetailsFragment: ViewModelFragment() {
 
                         Glide.with(ivCharacterGachaSplash)
                             .load("$baseUrl/characters/${args.characterId}/gacha-splash")
+                            .error("$baseUrl/characters/${args.characterId}/portrait")
                             .into(ivCharacterGachaSplash)
 
                         Glide.with(ivCharacterElement)

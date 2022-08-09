@@ -19,7 +19,7 @@ class WeeklyBossAdapter(
                     .error(R.drawable.paimon_icon_0)
                     .into(ivItemIcon)
 
-                tvItemName.text = item
+                tvItemName.text = item.formatName()
             }
         }
     }
@@ -40,6 +40,10 @@ class WeeklyBossAdapter(
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun String.formatName(): String  = this.split("-").joinToString(" ") {it ->
+        it.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
     }
 
     fun setNewList(newList: List<String>) {

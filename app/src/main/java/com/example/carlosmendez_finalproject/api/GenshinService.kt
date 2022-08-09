@@ -1,6 +1,7 @@
 package com.example.carlosmendez_finalproject.api
 
 
+import com.example.carlosmendez_finalproject.model.ArtifactResponse
 import com.example.carlosmendez_finalproject.model.BossResponse
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.WeaponResponse
@@ -32,7 +33,7 @@ interface GenshinService {
     @GET("artifacts/{id}")
     suspend fun getArtifactById(
         @Path("id") id: String
-    ): Response<WeaponResponse>
+    ): Response<ArtifactResponse>
 
     @GET("boss%2Fweekly-boss")
     suspend fun getWeeklyBosses(): Response<List<String>>

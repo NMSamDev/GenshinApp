@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="#615D5D"
+        >
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            />
+        <ImageView
+            android:id="@+id/iv_artifact_icon_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:src="@tools:sample/avatars"
+            android:backgroundTint="@color/hintColor1"
+            android:backgroundTintMode="multiply"
+            android:elevation="300dp"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RatingBar
+            android:id="@+id/rb_artifact_rarity"
+            style="@android:style/Widget.Holo.RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:isIndicator="true"
+            android:progressTint="#FFEB3B"
+            android:rating="5"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            tools:ignore="SpeakableTextPresentCheck" />
+        <TextView
+            android:id="@+id/tv_artifact_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:autoSizeTextType="uniform"
+            android:background="#222121"
+            android:fontFamily="serif"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+
+            tools:text="Berserker"/>
+
+        <TextView
+            android:id="@+id/tv_artifact_1_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="1 Piece bonus"
+            android:textSize="32sp"
+            android:fontFamily="serif"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/tv_artifact_1_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="serif"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/tv_artifact_2_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="2 Pieces bonus"
+            android:textSize="32sp"
+            android:fontFamily="serif"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/tv_artifact_2_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="serif"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/tv_artifact_4_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="4 Pieces bonus"
+            android:textSize="32sp"
+            android:fontFamily="serif"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/tv_artifact_4_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="serif"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+</ScrollView>

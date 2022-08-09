@@ -8,7 +8,8 @@ import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.databinding.GeneralListItemBinding
 
 class ArtifactAdapter(
-    private val list:MutableList<String> = mutableListOf()
+    private val list:MutableList<String> = mutableListOf(),
+    private val openDetails: (String) -> Unit
     ): RecyclerView.Adapter<ArtifactAdapter.ArtifactViewHolder>() {
     inner class ArtifactViewHolder(private val binding: GeneralListItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: String) {
@@ -19,7 +20,11 @@ class ArtifactAdapter(
 //                    .load("$baseUrl$item/flower-of-life")
                     .error(R.drawable.paimon_icon_0)
                     .into(ivItemIcon)
-                tvItemName.text = item
+                tvItemName.text = item.formatName()
+
+                root.setOnClickListener {
+                    openDetails(item)
+                }
             }
         }
     }
@@ -40,6 +45,10 @@ class ArtifactAdapter(
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun String.formatName(): String  = this.split("-").joinToString(" ") {it ->
+        it.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
     }
 
     fun setNewList(newList: List<String>) {

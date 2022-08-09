@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_index.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2558876811594203" />
-        <entry key="app/src/main/res/layout/artifact_detail.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/artifact_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/artifact_fragment.xml" value="0.11322463768115942" />
         <entry key="app/src/main/res/layout/artifacts_fragment.xml" value="0.11322463768115942" />
         <entry key="app/src/main/res/layout/character_detail_fragment.xml" value="0.1" />
