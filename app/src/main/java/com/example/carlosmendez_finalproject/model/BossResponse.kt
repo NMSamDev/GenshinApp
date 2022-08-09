@@ -7,12 +7,12 @@ import kotlinx.parcelize.Parcelize
 data class BossResponse(
     val name: String,
     val description: String,
-    val drops: List<Drop>,
+    val drops: List<DropResponse>,
     val artifacts: List<Artifact>
 )
 
 @Parcelize
-data class Drop(
+data class DropResponse(
     val name: String,
     val rarity: Int,
     val source: String

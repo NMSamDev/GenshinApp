@@ -6,19 +6,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.databinding.DropListItemBinding
-import com.example.carlosmendez_finalproject.model.Drop
+import com.example.carlosmendez_finalproject.model.DropResponse
 
 class DropAdapter(
-    private val list: MutableList<Drop> = mutableListOf(),
+    private val list: MutableList<DropResponse> = mutableListOf(),
     private val bossId: String
 ): RecyclerView.Adapter<DropAdapter.DropViewHolder>() {
     inner class DropViewHolder(private val binding: DropListItemBinding):
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: Drop) {
+        fun onBind(item: DropResponse) {
             val baseUrl = "https://api.genshin.dev/boss%2Fweekly-boss/"
             binding.apply {
+
                 Glide.with(ivDrop)
-                    .load(R.drawable.paimon_icon_0)
+                    .load("$baseUrl$bossId/${item.name.formatName()}")
                     .placeholder(R.drawable.element_pyro_icon)
                     .error(R.drawable.paimon_icon_0)
                     .into(ivDrop)
@@ -46,7 +47,7 @@ class DropAdapter(
         return list.size
     }
 
-    fun setNewList(newList: List<Drop>) {
+    fun setNewList(newList: List<DropResponse>) {
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()
