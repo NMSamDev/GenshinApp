@@ -10,16 +10,32 @@
         >
         <action
             android:id="@+id/action_nav_menu_fragment_to_character_fragment"
-            app:destination="@id/nav_character_fragment" />
+            app:destination="@id/nav_character_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_nav_menu_fragment_to_weaponFragment"
-            app:destination="@id/nav_weapon_fragment" />
+            app:destination="@id/nav_weapon_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_nav_menu_fragment_to_artifactFragment"
-            app:destination="@id/nav_artifact_fragment" />
+            app:destination="@id/nav_artifact_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_nav_menu_fragment_to_weeklyBossFragment"
-            app:destination="@id/nav_weekly_boss_fragment" />
+            app:destination="@id/nav_weekly_boss_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_character_fragment"
@@ -27,7 +43,11 @@
         android:label="CharacterFragment" >
         <action
             android:id="@+id/action_nav_character_fragment_to_characterDetails"
-            app:destination="@id/nav_character_details" />
+            app:destination="@id/nav_character_details"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_weapon_fragment"
@@ -35,7 +55,11 @@
         android:label="WeaponFragment" >
         <action
             android:id="@+id/action_nav_weapon_fragment_to_weaponDetailFragment"
-            app:destination="@id/nav_weapon_details" />
+            app:destination="@id/nav_weapon_details"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_artifact_fragment"
@@ -43,7 +67,11 @@
         android:label="ArtifactFragment" >
         <action
             android:id="@+id/action_nav_artifact_fragment_to_nav_artifact_details"
-            app:destination="@id/nav_artifact_details" />
+            app:destination="@id/nav_artifact_details"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_weekly_boss_fragment"
@@ -51,7 +79,11 @@
         android:label="WeeklyBossFragment" >
         <action
             android:id="@+id/action_nav_weekly_boss_fragment_to_nav_weekly_boss_details"
-            app:destination="@id/nav_weekly_boss_details" />
+            app:destination="@id/nav_weekly_boss_details"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment

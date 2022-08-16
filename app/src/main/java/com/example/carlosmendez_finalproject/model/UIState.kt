@@ -6,9 +6,9 @@ sealed class UIState {
     class Success<T>(val response: T): UIState()
 }
 
-enum class StateUI {
-    LOADING, // 0
-    ERROR, // 1
-    SUCCESS // 2
-}
+//enum class StateUI {
+//    LOADING, // 0
+//    ERROR, // 1
+//    SUCCESS // 2
+//}
 
