@@ -17,6 +17,16 @@
             app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/current_user_verification"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_current_user_verification_to_loginBiometricFragment"
+            app:destination="@id/login_biometric_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/current_user_verification"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/login_fragment"
@@ -34,5 +44,18 @@
         android:id="@+id/register_fragment"
         android:name="com.example.carlosmendez_finalproject.view.RegisterFragment"
         android:label="RegisterFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/login_biometric_fragment"
+        android:name="com.example.carlosmendez_finalproject.view.LoginBiometricFragment"
+        android:label="LoginBiometricFragment" >
+        <action
+            android:id="@+id/action_login_biometric_fragment_to_login_fragment"
+            app:destination="@id/login_fragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
     </fragment>
 </navigation>

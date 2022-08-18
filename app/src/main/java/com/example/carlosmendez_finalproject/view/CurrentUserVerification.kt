@@ -1,5 +1,6 @@
 package com.example.carlosmendez_finalproject.view
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,6 +22,7 @@ class CurrentUserVerification: ViewModelFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = CurrentUserVerificationBinding.inflate(layoutInflater)
+        val sharedPreferences = requireActivity().getSharedPreferences("UserLogin", MODE_PRIVATE)
 
         if (mAuth.currentUser!=null){
             val intent = Intent(requireActivity(), IndexActivity()::class.java)
@@ -28,9 +30,16 @@ class CurrentUserVerification: ViewModelFragment() {
             requireActivity().finish()
         }
         else{
-            findNavController().navigate(
-                CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginFragment()
-            )
+            if(sharedPreferences.getBoolean(KEY_REMEMBER, false)){
+                findNavController().navigate(
+                    CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginBiometricFragment()
+                )
+            }
+            else{
+                findNavController().navigate(
+                    CurrentUserVerificationDirections.actionCurrentUserVerificationToLoginFragment()
+                )
+            }
         }
 
 

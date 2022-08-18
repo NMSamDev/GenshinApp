@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/current_user_verification.xml" value="0.19166666666666668" />
         <entry key="app/src/main/res/layout/drop_list_item.xml" value="0.20260416666666667" />
         <entry key="app/src/main/res/layout/general_list_item.xml" value="0.2078125" />
+        <entry key="app/src/main/res/layout/login_biometric_fragment.xml" value="0.19958343505859377" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/login_page.xml" value="0.2558876811594203" />
         <entry key="app/src/main/res/layout/menu_fragment.xml" value="0.1512603759765625" />
