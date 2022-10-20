@@ -7,20 +7,22 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.carlosmendez_finalproject.R
-import com.example.carlosmendez_finalproject.databinding.CharacterDetailFragmentBinding
+import com.example.carlosmendez_finalproject.databinding.FragmentCharacterDetailBinding
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
+import dagger.hilt.android.AndroidEntryPoint
 
-class CharacterDetailsFragment: ViewModelFragment() {
-    lateinit var binding: CharacterDetailFragmentBinding
-    private val args: CharacterDetailsFragmentArgs by navArgs()
+@AndroidEntryPoint
+class FragmentCharacterDetails: ViewModelFragment() {
+    lateinit var binding: FragmentCharacterDetailBinding
+    private val args: FragmentCharacterDetailsArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CharacterDetailFragmentBinding.inflate(layoutInflater)
+        binding = FragmentCharacterDetailBinding.inflate(layoutInflater)
         configureObserver()
         return binding.root
     }

@@ -48,15 +48,17 @@ class WeaponDetailFragment: ViewModelFragment() {
                             .load("$baseUrl/${args.weaponId}/icon")
                             .error(R.drawable.paimon_icon_0)
                             .into(ivWeaponIcon)
-                        ivWeaponIcon.setBackgroundResource(
-                            when(weaponItem.rarity) {
-                                5 -> R.color.geo
-                                4 -> R.color.electro
-                                3 -> R.color.hydro
-                                2 -> R.color.anemo
-                                else -> R.color.hintColor1
-                            }
-                        )
+                        ivWeaponIcon.backgroundTintList =
+                            resources.getColorStateList(
+                                when(weaponItem.rarity) {
+                                    5 -> R.color.geo
+                                    4 -> R.color.electro
+                                    3 -> R.color.hydro
+                                    2 -> R.color.anemo
+                                    else -> R.color.hintColor1
+                                }
+                            )
+
 
 
                         Glide.with(ivWeaponType)

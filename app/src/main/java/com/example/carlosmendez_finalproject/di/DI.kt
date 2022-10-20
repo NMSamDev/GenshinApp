@@ -38,7 +38,7 @@ object DI {
 
     fun provideViewModel(storeOwner: ViewModelStoreOwner): GenshinViewModel {
         return ViewModelProvider(storeOwner, object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return GenshinViewModel(provideRepository(), provideDispatcher()) as T
             }
         })[GenshinViewModel::class.java]

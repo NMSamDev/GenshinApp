@@ -6,13 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.carlosmendez_finalproject.databinding.CharacterFragmentBinding
+import com.example.carlosmendez_finalproject.databinding.FragmentCharacterBinding
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.CharacterAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class CharacterFragment: ViewModelFragment() {
-    lateinit var binding: CharacterFragmentBinding
+@AndroidEntryPoint
+class FragmentCharacter: ViewModelFragment() {
+    lateinit var binding: FragmentCharacterBinding
     private val characterAdapter by lazy {
         CharacterAdapter(openDetails = ::openDetails)
     }
@@ -21,7 +23,7 @@ class CharacterFragment: ViewModelFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CharacterFragmentBinding.inflate(layoutInflater)
+        binding = FragmentCharacterBinding.inflate(layoutInflater)
         configureObserver()
         return binding.root
     }
@@ -55,7 +57,7 @@ class CharacterFragment: ViewModelFragment() {
      private fun openDetails(characterItem: String) {
         viewModel.setLoadingForDetails(binding.root.id)
         findNavController().navigate(
-            CharacterFragmentDirections.actionNavCharacterFragmentToCharacterDetails(characterItem)
+            FragmentCharacterDirections.actionNavCharacterFragmentToCharacterDetails(characterItem)
         )
     }
 }

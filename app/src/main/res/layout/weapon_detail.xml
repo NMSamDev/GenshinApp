@@ -21,9 +21,9 @@
             android:id="@+id/iv_weapon_icon"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-
-            android:backgroundTint="@color/hintColor1"
-            android:backgroundTintMode="multiply"
+            android:background="@drawable/bg_activities"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="screen"
             android:elevation="300dp"
             />
 
