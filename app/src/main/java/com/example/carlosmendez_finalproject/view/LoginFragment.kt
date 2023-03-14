@@ -11,16 +11,19 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.api.ValidatorRepository
 import com.example.carlosmendez_finalproject.databinding.LoginFragmentBinding
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
 const val KEY_MAIL = "mail"
 const val KEY_PASSWORD = "password"
 const val KEY_REMEMBER = "remember"
 
-class LoginFragment: ViewModelFragment(), ValidatorRepository {
+//@AndroidEntryPoint
+class LoginFragment: Fragment(), ValidatorRepository {
 
     private lateinit var binding: LoginFragmentBinding
     private val mAuth: FirebaseAuth by lazy {

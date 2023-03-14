@@ -8,14 +8,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.api.GenshinRepository
 import com.example.carlosmendez_finalproject.model.UIState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
+import javax.inject.Inject
 
 private const val TAG = "GenshinViewModel"
-class GenshinViewModel(
+
+//@HiltViewModel
+class GenshinViewModel (
     private val repository: GenshinRepository,
     private val dispatcher: CoroutineDispatcher
 ): ViewModel() {

@@ -1,5 +1,6 @@
 package com.example.carlosmendez_finalproject.api
 
+import android.util.Log
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
 import kotlinx.coroutines.flow.Flow
@@ -19,6 +20,7 @@ interface GenshinRepository {
 class GenshinRepositoryImpl(private val service: GenshinService): GenshinRepository {
     override suspend fun getCharacters(): Flow<UIState> =
         flow {
+            Log.d("MENU", "getCharacters: INICIO")
             try {
                 val response = service.getCharacters()
                 if (response.isSuccessful) {

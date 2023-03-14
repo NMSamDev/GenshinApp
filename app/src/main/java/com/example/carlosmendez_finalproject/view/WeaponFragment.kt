@@ -4,16 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.WeaponFragmentBinding
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.WeaponAdapter
+import com.example.carlosmendez_finalproject.viewmodel.GenshinViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WeaponFragment: ViewModelFragment() {
     lateinit var binding: WeaponFragmentBinding
     private val weaponAdapter by lazy {
         WeaponAdapter(openDetails = ::openDetails)
     }
+
+    //private val viewModel: GenshinViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

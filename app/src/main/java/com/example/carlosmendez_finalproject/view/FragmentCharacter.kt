@@ -5,19 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.FragmentCharacterBinding
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
 import com.example.carlosmendez_finalproject.viewadapters.CharacterAdapter
+import com.example.carlosmendez_finalproject.viewmodel.GenshinViewModel
 import dagger.hilt.android.AndroidEntryPoint
-
+import javax.inject.Inject
 @AndroidEntryPoint
 class FragmentCharacter: ViewModelFragment() {
     lateinit var binding: FragmentCharacterBinding
     private val characterAdapter by lazy {
         CharacterAdapter(openDetails = ::openDetails)
     }
+    //private val viewModel: GenshinViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

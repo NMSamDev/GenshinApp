@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.carlosmendez_finalproject.R
 import com.example.carlosmendez_finalproject.databinding.FragmentCharacterDetailBinding
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
+import com.example.carlosmendez_finalproject.viewmodel.GenshinViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,6 +20,7 @@ class FragmentCharacterDetails: ViewModelFragment() {
     lateinit var binding: FragmentCharacterDetailBinding
     private val args: FragmentCharacterDetailsArgs by navArgs()
 
+    //private val viewModel: GenshinViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -7,7 +7,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.carlosmendez_finalproject.R
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class IndexActivity():AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

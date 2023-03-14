@@ -10,12 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.carlosmendez_finalproject.databinding.CurrentUserVerificationBinding
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CurrentUserVerification: ViewModelFragment() {
     private lateinit var binding: CurrentUserVerificationBinding
     private val mAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
