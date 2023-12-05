@@ -20,13 +20,13 @@ import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MenuFragment: ViewModelFragment() {
+class MenuFragment: Fragment() {
     lateinit var binding: MenuFragmentBinding
     private val mAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
 
-    //private val viewModel: GenshinViewModel by viewModels()
+    private val viewModel: GenshinViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

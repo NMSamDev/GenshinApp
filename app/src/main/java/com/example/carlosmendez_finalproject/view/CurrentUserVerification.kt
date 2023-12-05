@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CurrentUserVerification: ViewModelFragment() {
+class CurrentUserVerification: Fragment() {
     private lateinit var binding: CurrentUserVerificationBinding
     private val mAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()

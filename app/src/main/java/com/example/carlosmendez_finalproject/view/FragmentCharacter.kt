@@ -1,6 +1,7 @@
 package com.example.carlosmendez_finalproject.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,28 +15,37 @@ import com.example.carlosmendez_finalproject.viewadapters.CharacterAdapter
 import com.example.carlosmendez_finalproject.viewmodel.GenshinViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import kotlin.math.log
+
 @AndroidEntryPoint
-class FragmentCharacter: ViewModelFragment() {
+class FragmentCharacter: Fragment() {
     lateinit var binding: FragmentCharacterBinding
     private val characterAdapter by lazy {
         CharacterAdapter(openDetails = ::openDetails)
     }
-    //private val viewModel: GenshinViewModel by viewModels()
+    private val viewModel: GenshinViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharacterBinding.inflate(layoutInflater)
-        configureObserver()
+        if(viewModel!=null)
+            configureObserver()
         return binding.root
     }
 
     private fun configureObserver() {
+        Log.d("CHARACTER", "configureObserver: INIT")
         viewModel.characterData.observe(viewLifecycleOwner) {
             uiState ->
+            if (uiState!=null)
+                Log.d("CHARACTER", "configureObserver: ALGO")
+            else
+                Log.d("CHARACTER", "configureObserver: NONE")
             when(uiState) {
                 is UIState.Loading -> {
+                    Log.d("CHARACTER", "configureObserver: LOADING")
                     viewModel.getCharacters()
                 }
                 is UIState.Error -> {

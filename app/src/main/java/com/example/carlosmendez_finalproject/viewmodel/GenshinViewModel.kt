@@ -11,15 +11,18 @@ import com.example.carlosmendez_finalproject.model.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import javax.inject.Inject
 
 private const val TAG = "GenshinViewModel"
 
-//@HiltViewModel
-class GenshinViewModel (
+@HiltViewModel
+class GenshinViewModel @Inject constructor(
     private val repository: GenshinRepository,
     private val dispatcher: CoroutineDispatcher
 ): ViewModel() {
@@ -57,10 +60,21 @@ class GenshinViewModel (
     private val viewModelSafeScope by lazy {
         viewModelScope + coroutineExceptionHandler
     }
+
+    init {
+        Log.d("MyViewModel", "myRepository: $repository")
+        Log.d("MyViewModel", "myDispatcher: $dispatcher")
+    }
+
     fun getCharacters() {
+        Log.d(TAG, "getCharacters: INIT")
         viewModelSafeScope.launch(dispatcher) {
             // collect from our flow
-            repository.getCharacters().collect { state ->
+            repository.getCharacters()
+                .onStart { Log.d("GenshinViewModel", "onStart") }
+                .onCompletion { Log.d("GenshinViewModel", "onCompletion") }
+                .catch { e -> Log.e("GenshinViewModel", "Error: ${e.message}") }
+                .collect { state ->
                 // postValue updates LiveData asynchronously
                 _characterData.postValue(state)
             }

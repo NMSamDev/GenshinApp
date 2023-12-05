@@ -1,5 +1,6 @@
 package com.example.carlosmendez_finalproject.di
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
@@ -24,6 +25,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    const val TAG = "SingletonComponent" 
     private val service = Retrofit.Builder()
         .baseUrl("https://api.genshin.dev/")
         .addConverterFactory(GsonConverterFactory.create())
@@ -46,9 +48,11 @@ object AppModule {
     @Provides
     fun provideRepository():GenshinRepository = GenshinRepositoryImpl(service)
 
+
     @Provides
     fun provideDispatcher(): CoroutineDispatcher = Dispatchers.IO
 
+    // ViewModelProvider.Factory es el que causa complicaciones
     fun provideViewModel(storeOwner: ViewModelStoreOwner): GenshinViewModel {
         return ViewModelProvider(storeOwner, object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {

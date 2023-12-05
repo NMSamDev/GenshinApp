@@ -3,8 +3,7 @@ package com.example.carlosmendez_finalproject.api
 import android.util.Log
 import com.example.carlosmendez_finalproject.model.CharacterResponse
 import com.example.carlosmendez_finalproject.model.UIState
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.*
 
 interface GenshinRepository {
     suspend fun getCharacters(): Flow<UIState>
@@ -18,9 +17,13 @@ interface GenshinRepository {
 }
 
 class GenshinRepositoryImpl(private val service: GenshinService): GenshinRepository {
+
+    init {
+        Log.d("GenshinRepositoryImpl", "INIT")
+    }
     override suspend fun getCharacters(): Flow<UIState> =
         flow {
-            Log.d("MENU", "getCharacters: INICIO")
+            Log.d("GenshinRepositoryImpl", "getCharacters: INICIO")
             try {
                 val response = service.getCharacters()
                 if (response.isSuccessful) {
@@ -32,6 +35,12 @@ class GenshinRepositoryImpl(private val service: GenshinService): GenshinReposit
             } catch (e: Exception) {
                 emit(UIState.Error(e))
             }
+        }.onStart {
+            Log.d("GenshinRepositoryImpl", "getCharacters: onStart")
+        }.onCompletion {
+            Log.d("GenshinRepositoryImpl", "getCharacters: onCompletion")
+        }.catch { e ->
+            Log.e("GenshinRepositoryImpl", "getCharacters: error", e)
         }
 
     override suspend fun getCharacterById(id: String): Flow<UIState> =
